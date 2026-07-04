@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "patipoti",
+  "version": "1.2",
+  "description": "クリック、タイピング、スクロールで音を鳴らします",
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "click/*.mp3",
+        "type/*.mp3",
+        "enter/*.mp3",
+        "scroll/*.mp3"
+      ],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}
