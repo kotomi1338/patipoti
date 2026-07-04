@@ -73,7 +73,8 @@ let currentScrollAudio = null;
 let currentScrollPromise = null;
 let isScrolling = false;
 
-document.addEventListener('scroll', () => {
+// ✨ 変更点: windowに対して、{ capture: true } で全要素のスクロールを監視
+window.addEventListener('scroll', (event) => {
     if (isContextInvalidated() || !hasInteracted) return;
 
     if (!isScrolling) {
@@ -103,4 +104,4 @@ document.addEventListener('scroll', () => {
             });
         }
     }, 150);
-});
+}, { capture: true, passive: true }); // ← ここが今回の最重要ポイントです！
